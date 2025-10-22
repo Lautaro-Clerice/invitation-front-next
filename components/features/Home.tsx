@@ -14,7 +14,7 @@ const Home = () => {
         <section id="inicio">
           <Hero />
         </section>
-        {/* <section id="categorias">
+        <section id="categorias">
           <Categories />
         </section>
         <section id="que-incluye">
@@ -25,10 +25,11 @@ const Home = () => {
         </section>
         <section id="contacto">
           <Contact />
-        </section> */}
+        </section>
       </main>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };
+
 export default Home;
