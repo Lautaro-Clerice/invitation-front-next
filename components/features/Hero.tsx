@@ -13,9 +13,11 @@ import {
   slideInFromRight,
 } from "@/utils/animations";
 import { scrollToSection } from "@/utils/scrolls";
+import { useTranslations } from "next-intl";
 
 export const Hero = () => {
-  const words = ["especiales", "únicos"];
+  const t = useTranslations("Hero");
+  const words = [t("words.0"), t("words.1")];
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
 
   useEffect(() => {
@@ -43,7 +45,7 @@ export const Hero = () => {
               <div className="relative rounded-2xl overflow-hidden shadow-elegant">
                 <Image
                   src={heroImage}
-                  alt="Decoración elegante de evento, ejemplo de invitación digital personalizada"
+                  alt={t("imageAlt")}
                   className="w-full h-[400px] lg:h-[600px] object-cover"
                   width={1200}
                   height={600}
@@ -66,14 +68,14 @@ export const Hero = () => {
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6"
               >
                 <Sparkles className="h-4 w-4" />
-                <span>Invitaciones únicas y personalizadas</span>
+                <span>{t("badge")}</span>
               </motion.div>
 
               <motion.h1
                 variants={fadeInUp}
                 className="font-display text-4xl md:text-5xl lg:text-5xl font-bold mb-6 leading-tight"
               >
-                Celebra tus momentos{" "}
+                {t("title")}{" "}
                 <span className="relative inline-block text-primary">
                   <AnimatePresence mode="wait">
                     <motion.span
@@ -98,9 +100,7 @@ export const Hero = () => {
                 variants={fadeInUp}
                 className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto lg:mx-0"
               >
-                Crea invitaciones digitales elegantes e interactivas que
-                sorprenderán a tus invitados. Diseño personalizado, animaciones
-                únicas y gestión de RSVP en una sola plataforma.
+                {t("subtitle")}
               </motion.p>
 
               <motion.div
@@ -111,9 +111,9 @@ export const Hero = () => {
                   onClick={() => scrollToSection("categorias")}
                   size="lg"
                   className="shadow-elegant group"
-                  aria-label="Ver categorías de invitaciones"
+                  aria-label={t("button.categories")}
                 >
-                  Ver categorías
+                  {t("button.categories")}
                   <ArrowRight
                     className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1"
                     aria-hidden="true"
@@ -122,14 +122,10 @@ export const Hero = () => {
                 <Button
                   variant="outline"
                   size="lg"
-                  onClick={() =>
-                    openWhatsApp(
-                      "Hola! 👋 Me das una mano para hacer mi invitacion digital?"
-                    )
-                  }
-                  aria-label="Contactar por WhatsApp"
+                  onClick={() => openWhatsApp(t("whatsappMessage"))}
+                  aria-label={t("button.contact")}
                 >
-                  Contactanos
+                  {t("button.contact")}
                   <PhoneCall
                     className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1"
                     aria-hidden="true"
@@ -145,20 +141,24 @@ export const Hero = () => {
                   <div className="font-display text-3xl font-bold text-primary">
                     500+
                   </div>
-                  <div className="text-sm text-muted-foreground">Diseños</div>
+                  <div className="text-sm text-muted-foreground">
+                    {t("stats.designs")}
+                  </div>
                 </div>
                 <div>
                   <div className="font-display text-3xl font-bold text-primary">
                     10K+
                   </div>
-                  <div className="text-sm text-muted-foreground">Clientes</div>
+                  <div className="text-sm text-muted-foreground">
+                    {t("stats.clients")}
+                  </div>
                 </div>
                 <div>
                   <div className="font-display text-3xl font-bold text-primary">
                     98%
                   </div>
                   <div className="text-sm text-muted-foreground">
-                    Satisfacción
+                    {t("stats.satisfaction")}
                   </div>
                 </div>
               </motion.div>

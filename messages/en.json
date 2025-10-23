@@ -1,0 +1,31 @@
+{
+  "Categories": {
+    "title": "Categories we work with",
+    "description": "Unique designs for every type of celebration. Choose your category and customize every detail to create the perfect invitation.",
+    "loading": "Loading",
+    "seeDesigns": "See designs"
+  },
+  "Hero": {
+    "badge": "Unique and personalized invitations",
+    "title": "Celebrate your moments",
+    "subtitle": "Create elegant and interactive digital invitations that will surprise your guests. Personalized design, unique animations, and RSVP management in one platform.",
+    "button": {
+      "categories": "See categories",
+      "contact": "Contact us"
+    },
+    "stats": {
+      "designs": "Designs",
+      "clients": "Clients",
+      "satisfaction": "Satisfaction"
+    },
+    "words": ["special", "unique"],
+    "imageAlt": "Elegant event decoration, example of personalized digital invitation",
+    "whatsappMessage": "Hi! 👋 Can you help me make my digital invitation?"
+  },
+  "Navbar": {
+    "inicio": "Home",
+    "invitaciones": "Invitations",
+    "contacto": "Contact",
+    "brand": "Invitly"
+  }
+}

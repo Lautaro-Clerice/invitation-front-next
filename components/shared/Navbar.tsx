@@ -1,21 +1,23 @@
 "use client";
-import Link from "next/link";
+import { Link } from "@/src/i18n/routing";
+import { useTranslations } from "next-intl";
 import { useState, useEffect } from "react";
 import { Menu, X, Sparkles } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { SimpleThemeToggle } from "@/components/ui/theme-toggle";
+import { LanguageToggle } from "@/components/ui/language-toggle";
 import { Container } from "@/components/shared/Container";
 import { scrollToSection } from "@/utils/scrolls";
 
-const navLinks = [
-  { name: "Inicio", id: "/" },
-  { name: "Invitaciones", id: "/templates" },
-  { name: "Contacto", id: "/contact" },
-];
-
 export const Navbar = () => {
+  const t = useTranslations("Navbar");
+  const navLinks = [
+    { name: t("inicio"), id: "/" },
+    { name: t("invitaciones"), id: "/templates" },
+    { name: t("contacto"), id: "/contact" },
+  ];
+
   const [isOpen, setIsOpen] = useState(false);
   const { scrollY } = useScroll();
   const [hasScrolled, setHasScrolled] = useState(false);
@@ -40,7 +42,7 @@ export const Navbar = () => {
             className="flex items-center gap-2 group"
           >
             <Sparkles className="h-6 w-6 text-primary transition-transform group-hover:rotate-12" />
-            <span className="font- text-xl font-semibold">Invitly</span>
+            <span className="font- text-xl font-semibold">{t("brand")}</span>
           </button>
 
           <div className="hidden md:flex items-center gap-8">
@@ -56,7 +58,7 @@ export const Navbar = () => {
           </div>
 
           <div className="hidden md:flex items-center gap-3">
-            <SimpleThemeToggle />
+            <LanguageToggle />
           </div>
 
           <Sheet open={isOpen} onOpenChange={setIsOpen}>

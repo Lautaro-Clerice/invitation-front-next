@@ -1,5 +1,6 @@
 "use client";
 import { useRef } from "react";
+import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { ArrowRight, Heart } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -18,6 +19,7 @@ import "swiper/css/pagination";
 import "swiper/css/autoplay";
 
 export const Categories = () => {
+  const t = useTranslations("Categories");
   const { data: categories, isLoading, error } = useCategories();
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -125,14 +127,13 @@ export const Categories = () => {
               variants={fadeInUp}
               className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4"
             >
-              Categorías que trabajamos
+              {t("title")}
             </motion.h2>
             <motion.p
               variants={fadeInUp}
               className="text-lg text-muted-foreground max-w-2xl mx-auto"
             >
-              Diseños únicos para cada tipo de celebración. Elige tu categoría y
-              personaliza cada detalle para crear la invitación perfecta.
+              {t("description")}
             </motion.p>
           </motion.div>
 
@@ -144,7 +145,7 @@ export const Categories = () => {
             className="h-auto"
           >
             {isLoading ? (
-              <h2>Cargando</h2>
+              <h2>{t("loading")}</h2>
             ) : error ? (
               <CategoriesSwiperWithError
                 categories={categories}
@@ -210,7 +211,7 @@ export const Categories = () => {
                             </p>
 
                             <div className="flex items-center text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                              <span>Ver diseños</span>
+                              <span>{t("seeDesigns")}</span>
                               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                             </div>
                           </div>
