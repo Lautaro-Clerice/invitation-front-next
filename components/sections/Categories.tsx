@@ -12,6 +12,10 @@ import { useCategories } from "@/hooks/useCategories";
 import { withErrorBoundary } from "@/components/shared/withErrorBoundary";
 import { fadeInUp, scaleIn, staggerContainer } from "@/utils/animations";
 import { Category } from "@/utils/types";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/autoplay";
 
 export const Categories = () => {
   const { data: categories, isLoading, error } = useCategories();

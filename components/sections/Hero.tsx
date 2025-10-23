@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, PhoneCall, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -15,8 +15,6 @@ import {
 import { scrollToSection } from "@/utils/scrolls";
 
 export const Hero = () => {
-  const sectionRef = useRef<HTMLElement>(null);
-
   const words = ["especiales", "únicos"];
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
 
@@ -30,10 +28,7 @@ export const Hero = () => {
 
   return (
     <>
-      <section
-        ref={sectionRef}
-        className="relative min-h-screen flex items-center pt-16 grain overflow-hidden"
-      >
+      <section className="relative min-h-screen flex items-center pt-16 grain overflow-hidden">
         <div className="absolute inset-0 bg-[var(--gradient-hero)] opacity-60" />
 
         <Container className="relative z-10">

@@ -1,5 +1,7 @@
-import "./globals.css";
 import { ReactQueryProvider } from "@/components/shared/ReactQueryProvider";
+import "./globals.css";
+import { Navbar } from "@/components/shared/Navbar";
+import { Footer } from "@/components/shared/Footer";
 
 export const metadata = {
   title: "Invitaciones digitales únicas | Tu marca",
@@ -29,7 +31,9 @@ export default function RootLayout({
         />
       </head>
       <body className={`antialiased`}>
+        <Navbar />
         <ReactQueryProvider>{children}</ReactQueryProvider>
+        <Footer />
       </body>
     </html>
   );

@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -22,8 +23,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { toast } from "sonner";
-import { fadeInUp, staggerContainer } from "@/lib/animations";
-import { contactFormSchema, type ContactFormValues } from "@/lib/validations";
+import { fadeInUp, staggerContainer } from "@/utils/animations";
+import { contactFormSchema, type ContactFormValues } from "@/utils/validations";
 import contact from "@/assets/lotties/contact.json";
 import Lottie from "lottie-react";
 
@@ -244,3 +245,4 @@ export const Contact = () => {
     </section>
   );
 };
+export default Contact;
