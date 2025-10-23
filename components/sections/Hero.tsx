@@ -9,9 +9,14 @@ import {
 import { ArrowRight, PhoneCall, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/shared/Container";
-import { fadeInUp, slideInFromLeft, slideInFromRight } from "@/lib/animations";
-import { openWhatsApp } from "@/lib/utils";
 import heroImage from "@/assets/hero-event.jpg";
+import Image from "next/image";
+import { openWhatsApp } from "@/utils/whatsapp";
+import {
+  fadeInUp,
+  slideInFromLeft,
+  slideInFromRight,
+} from "@/utils/animations";
 
 const scrollToSection = (sectionId: string) => {
   const element = document.getElementById(sectionId);
@@ -66,10 +71,14 @@ export const Hero = () => {
                 style={{ y: imageY, scale: imageScale }}
                 className="relative rounded-2xl overflow-hidden shadow-elegant"
               >
-                <img
+                <Image
                   src={heroImage}
-                  alt="Elegant celebration event setup"
+                  alt="Decoración elegante de evento, ejemplo de invitación digital personalizada"
                   className="w-full h-[400px] lg:h-[600px] object-cover"
+                  width={1200}
+                  height={600}
+                  priority
+                  role="img"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
               </motion.div>
@@ -132,17 +141,25 @@ export const Hero = () => {
                   onClick={() => scrollToSection("categorias")}
                   size="lg"
                   className="shadow-elegant group"
+                  aria-label="Ver categorías de invitaciones"
                 >
                   Ver categorías
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  <ArrowRight
+                    className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1"
+                    aria-hidden="true"
+                  />
                 </Button>
                 <Button
                   variant="outline"
                   size="lg"
                   onClick={() => openWhatsApp(whatsappMessage)}
+                  aria-label="Contactar por WhatsApp"
                 >
                   Contactanos
-                  <PhoneCall className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  <PhoneCall
+                    className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1"
+                    aria-hidden="true"
+                  />
                 </Button>
               </motion.div>
 

@@ -76,7 +76,7 @@ export const Navbar = () => {
             className="flex items-center gap-2 group"
           >
             <Sparkles className="h-6 w-6 text-primary transition-transform group-hover:rotate-12" />
-            <span className="font-display text-xl font-semibold">
+            <span className="font- text-xl font-semibold">
               Invita<span className="text-primary">Digital</span>
             </span>
           </button>
