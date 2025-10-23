@@ -1,12 +1,11 @@
 "use client";
 import { motion } from "framer-motion";
 import { Eye, Palette } from "lucide-react";
-import { Navbar } from "@/components/shared/Navbar";
-import { Footer } from "@/components/shared/Footer";
 import { Container } from "@/components/shared/Container";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { fadeInUp, scaleIn, staggerContainer } from "@/utils/animations";
+import { useTranslations } from "next-intl";
 
 interface Invitation {
   id: string;
@@ -84,6 +83,7 @@ const invitations: Invitation[] = [
 ];
 
 const Templates = () => {
+  const t = useTranslations("Templates");
   return (
     <section className="py-20 bg-gradient-to-b from-secondary to-background">
       <Container>
@@ -98,14 +98,13 @@ const Templates = () => {
             variants={fadeInUp}
             className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4"
           >
-            Invitaciones destacadas
+            {t("featuredInvitations")}
           </motion.h2>
           <motion.p
             variants={fadeInUp}
             className="text-lg text-muted-foreground max-w-2xl mx-auto"
           >
-            Explora nuestras invitaciones más populares con animaciones, música,
-            RSVP y mucho más. Todas 100% personalizables.
+            {t("featuredDescription")}
           </motion.p>
         </motion.div>
 
@@ -133,11 +132,11 @@ const Templates = () => {
                   >
                     <Button size="sm" variant="secondary" className="shadow-lg">
                       <Eye className="h-4 w-4 mr-2" />
-                      Ver demo
+                      {t("viewDemo")}
                     </Button>
                     <Button size="sm" className="shadow-lg">
                       <Palette className="h-4 w-4 mr-2" />
-                      Obtener
+                      {t("get")}
                     </Button>
                   </motion.div>
                 </div>
@@ -153,7 +152,7 @@ const Templates = () => {
                   <div className="flex flex-wrap gap-2 mt-auto min-h-[2.5rem] items-start">
                     {invitation.tags.map((tag) => (
                       <Badge key={tag} variant="secondary" className="text-xs">
-                        {tag}
+                        {t(`tags.${tag}`)}
                       </Badge>
                     ))}
                   </div>
@@ -171,7 +170,7 @@ const Templates = () => {
           className="text-center mt-12"
         >
           <Button size="lg" variant="outline">
-            Ver todas las invitaciones
+            {t("viewAll")}
           </Button>
         </motion.div>
       </Container>

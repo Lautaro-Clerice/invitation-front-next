@@ -27,8 +27,10 @@ import { fadeInUp, staggerContainer } from "@/utils/animations";
 import { contactFormSchema, type ContactFormValues } from "@/utils/validations";
 import contact from "@/assets/lotties/contact.json";
 import Lottie from "lottie-react";
+import { useTranslations } from "next-intl";
 
 export const Contact = () => {
+  const t = useTranslations("Contact");
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: {
@@ -41,8 +43,8 @@ export const Contact = () => {
 
   const onSubmit = (data: ContactFormValues) => {
     console.log("Form data:", data);
-    toast.success("¡Mensaje enviado!", {
-      description: "Nos pondremos en contacto contigo pronto.",
+    toast.success(t("form.success"), {
+      description: t("form.successDescription"),
     });
     form.reset();
   };
@@ -62,11 +64,10 @@ export const Contact = () => {
               <Lottie animationData={contact} loop={true} />
             </div>
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-              Contactanos
+              {t("title")}
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              ¿Tenés alguna duda? No dudés en consultarnos. Nuestra idea es
-              ayudarte a crear la invitacion perfecta para tu evento
+              {t("subtitle")}
             </p>
           </motion.div>
 
@@ -75,7 +76,7 @@ export const Contact = () => {
             <motion.div variants={fadeInUp} className="space-y-6">
               <div className="bg-card rounded-2xl p-8 shadow-soft">
                 <h3 className="font-display text-2xl font-bold mb-6">
-                  Información de contacto
+                  {t("contactInfo")}
                 </h3>
 
                 <div className="space-y-4">
@@ -84,7 +85,7 @@ export const Contact = () => {
                       <Phone className="h-5 w-5 text-primary" />
                     </div>
                     <div>
-                      <p className="font-medium">Teléfono / WhatsApp</p>
+                      <p className="font-medium">{t("phone")}</p>
                       <p className="text-sm text-muted-foreground">
                         +54 9 11 1234-5678
                       </p>
@@ -96,7 +97,7 @@ export const Contact = () => {
                       <Mail className="h-5 w-5 text-primary" />
                     </div>
                     <div>
-                      <p className="font-medium">Email</p>
+                      <p className="font-medium">{t("email")}</p>
                       <p className="text-sm text-muted-foreground">
                         hola@Invitly.com
                       </p>
@@ -108,7 +109,7 @@ export const Contact = () => {
                       <Instagram className="h-5 w-5 text-primary" />
                     </div>
                     <div>
-                      <p className="font-medium">Instagram</p>
+                      <p className="font-medium">{t("instagram")}</p>
                       <a
                         href="https://instagram.com"
                         target="_blank"
@@ -124,15 +125,16 @@ export const Contact = () => {
 
               <div className="bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl p-8">
                 <h4 className="font-semibold text-lg mb-2">
-                  Horarios de atención
+                  {t("hoursTitle")}
                 </h4>
-                <p className="text-sm text-muted-foreground mb-4">
-                  Lunes a Viernes: 9:00 - 18:00
-                  <br />
-                  Sábados: 10:00 - 14:00
+                <p
+                  className="text-sm text-muted-foreground mb-4"
+                  style={{ whiteSpace: "pre-line" }}
+                >
+                  {t("hours")}
                 </p>
                 <p className="text-xs text-muted-foreground">
-                  Respuesta promedio en menos de 24 horas
+                  {t("responseTime")}
                 </p>
               </div>
             </motion.div>
@@ -148,9 +150,12 @@ export const Contact = () => {
                     name="name"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Nombre completo</FormLabel>
+                        <FormLabel>{t("form.name")}</FormLabel>
                         <FormControl>
-                          <Input placeholder="Tu nombre" {...field} />
+                          <Input
+                            placeholder={t("form.namePlaceholder")}
+                            {...field}
+                          />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -162,11 +167,11 @@ export const Contact = () => {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Email</FormLabel>
+                        <FormLabel>{t("form.email")}</FormLabel>
                         <FormControl>
                           <Input
                             type="email"
-                            placeholder="tu@email.com"
+                            placeholder={t("form.emailPlaceholder")}
                             {...field}
                           />
                         </FormControl>
@@ -180,29 +185,37 @@ export const Contact = () => {
                     name="eventType"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Tipo de evento</FormLabel>
+                        <FormLabel>{t("form.eventType")}</FormLabel>
                         <Select
                           onValueChange={field.onChange}
                           defaultValue={field.value}
                         >
                           <FormControl>
                             <SelectTrigger>
-                              <SelectValue placeholder="Selecciona un tipo de evento" />
+                              <SelectValue
+                                placeholder={t("form.eventTypePlaceholder")}
+                              />
                             </SelectTrigger>
                           </FormControl>
                           <SelectContent>
-                            <SelectItem value="boda">Boda</SelectItem>
-                            <SelectItem value="quince">15 Años</SelectItem>
+                            <SelectItem value="boda">
+                              {t("form.eventTypes.boda")}
+                            </SelectItem>
+                            <SelectItem value="quince">
+                              {t("form.eventTypes.quince")}
+                            </SelectItem>
                             <SelectItem value="babyshower">
-                              Baby Shower
+                              {t("form.eventTypes.babyshower")}
                             </SelectItem>
                             <SelectItem value="cumpleanos">
-                              Cumpleaños
+                              {t("form.eventTypes.cumpleanos")}
                             </SelectItem>
                             <SelectItem value="corporativo">
-                              Corporativo
+                              {t("form.eventTypes.corporativo")}
                             </SelectItem>
-                            <SelectItem value="otro">Otro</SelectItem>
+                            <SelectItem value="otro">
+                              {t("form.eventTypes.otro")}
+                            </SelectItem>
                           </SelectContent>
                         </Select>
                         <FormMessage />
@@ -215,10 +228,10 @@ export const Contact = () => {
                     name="message"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Mensaje</FormLabel>
+                        <FormLabel>{t("form.message")}</FormLabel>
                         <FormControl>
                           <Textarea
-                            placeholder="Cuéntanos sobre tu evento..."
+                            placeholder={t("form.messagePlaceholder")}
                             rows={5}
                             {...field}
                           />
@@ -234,7 +247,7 @@ export const Contact = () => {
                     size="lg"
                   >
                     <Send className="h-4 w-4 mr-2" />
-                    Enviar mensaje
+                    {t("form.submit")}
                   </Button>
                 </form>
               </Form>

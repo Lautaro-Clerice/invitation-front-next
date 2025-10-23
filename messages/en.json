@@ -1,4 +1,95 @@
 {
+  "Contact": {
+    "form": {
+      "errors": {
+        "nameMin": "Name must be at least 2 characters",
+        "nameMax": "Name cannot exceed 100 characters",
+        "emailInvalid": "Invalid email",
+        "emailMax": "Email cannot exceed 255 characters",
+        "eventType": "Select an event type",
+        "messageMin": "Message must be at least 10 characters",
+        "messageMax": "Message cannot exceed 1000 characters",
+        "passwordMin": "Password must be at least 6 characters",
+        "passwordMax": "Password cannot exceed 100 characters",
+        "passwordsMatch": "Passwords do not match",
+        "phoneInvalid": "Invalid phone format",
+        "bioMax": "Bio cannot exceed 500 characters"
+      }
+    },
+    "title": "Contact us",
+    "subtitle": "Do you have any questions? Feel free to ask us. Our goal is to help you create the perfect invitation for your event.",
+    "contactInfo": "Contact information",
+    "phone": "Phone / WhatsApp",
+    "email": "Email",
+    "instagram": "Instagram",
+    "hoursTitle": "Business hours",
+    "hours": "Monday to Friday: 9:00am - 6:00pm\nSaturdays: 10:00am - 2:00pm",
+    "responseTime": "Average response in less than 24 hours",
+    "form": {
+      "name": "Full name",
+      "namePlaceholder": "Your name",
+      "email": "Email",
+      "emailPlaceholder": "your@email.com",
+      "eventType": "Event type",
+      "eventTypePlaceholder": "Select an event type",
+      "eventTypes": {
+        "boda": "Wedding",
+        "quince": "15th Birthday",
+        "babyshower": "Baby Shower",
+        "cumpleanos": "Birthday",
+        "corporativo": "Corporate",
+        "otro": "Other"
+      },
+      "message": "Message",
+      "messagePlaceholder": "Tell us about your event...",
+      "submit": "Send message",
+      "success": "Message sent!",
+      "successDescription": "We will contact you soon."
+    }
+  },
+  "Features": {
+    "badge": "All included",
+    "title": "What does your <span class=\"text-primary\">invitation</span> include?",
+    "description": "Each invitation comes with all the tools you need to create a memorable experience for your guests",
+    "features": [
+      {
+        "title": "Personalized Design",
+        "description": "Each invitation is unique and designed especially for your event"
+      },
+      {
+        "title": "100% Digital",
+        "description": "Interactive invitations that look perfect on any device"
+      },
+      {
+        "title": "RSVP Management",
+        "description": "Track confirmations and manage your guest list automatically"
+      },
+      {
+        "title": "Reminders",
+        "description": "Automatic reminders so no one forgets your event"
+      },
+      {
+        "title": "Interactive Gallery",
+        "description": "Include photos and videos that come alive with elegant animations"
+      },
+      {
+        "title": "Background Music",
+        "description": "Add the perfect soundtrack to set the ideal mood"
+      }
+    ],
+    "benefitsTitle": "And much more <span class=\"text-primary\">included</span>",
+    "benefitsDescription": "Our comprehensive service ensures you have everything you need to create the perfect invitation without extra worries.",
+    "benefits": [
+      "Instant delivery via WhatsApp or email",
+      "Unlimited guests",
+      "Real-time updates",
+      "Compatible with all devices",
+      "Detailed open statistics",
+      "Technical support included"
+    ],
+    "experienceTitle": "Complete Experience",
+    "experienceDescription": "Everything you need to create unforgettable moments"
+  },
   "Categories": {
     "title": "Categories we work with",
     "description": "Unique designs for every type of celebration. Choose your category and customize every detail to create the perfect invitation.",
@@ -27,5 +118,27 @@
     "invitaciones": "Invitations",
     "contacto": "Contact",
     "brand": "Invitly"
+  },
+  "Templates": {
+    "featuredInvitations": "Featured invitations",
+    "featuredDescription": "Explore our most popular invitations with animations, music, RSVP and much more. All 100% customizable.",
+    "viewDemo": "View demo",
+    "get": "Get",
+    "viewAll": "View all invitations",
+    "tags": {
+      "Interactiva": "Interactive",
+      "Con música": "With music",
+      "RSVP": "RSVP",
+      "Animada": "Animated",
+      "Con contador": "With countdown",
+      "Galería": "Gallery",
+      "Con juegos": "With games",
+      "Confetti": "Confetti",
+      "Contador": "Countdown",
+      "Profesional": "Professional",
+      "Calendario": "Calendar",
+      "Video": "Video",
+      "Lista regalos": "Gift list"
+    }
   }
 }
