@@ -1,4 +1,4 @@
-import apiResponse from "@/lib/api";
+import apiResponse from "@/utils/api";
 import { Guest } from "@/templates/shared/types";
 
 export const createGuestRsvp = async (data: Guest) => {

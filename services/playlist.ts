@@ -1,4 +1,4 @@
-import apiResponse from "@/lib/api";
+import apiResponse from "@/utils/api";
 import { PlaylistProps } from "@/templates/shared/types";
 
 export const createNewSongPlaylist = async (

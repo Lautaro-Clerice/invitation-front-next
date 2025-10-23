@@ -1,4 +1,4 @@
-import apiResponse from "@/lib/api";
+import apiResponse from "@/utils/api";
 
 export const getEventBySlug = async (slug: string) => {
   try {

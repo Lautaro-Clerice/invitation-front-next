@@ -137,7 +137,6 @@ export const Hero = () => {
                 </Button>
               </motion.div>
 
-              {/* Stats or features */}
               <motion.div
                 variants={fadeInUp}
                 className="mt-12 grid grid-cols-3 gap-6 max-w-md mx-auto lg:mx-0"
