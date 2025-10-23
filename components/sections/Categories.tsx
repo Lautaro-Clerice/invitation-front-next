@@ -8,14 +8,10 @@ import { Container } from "@/components/shared/Container";
 import { WaveDivider } from "./WaveDivider";
 import { FlowerEdges } from "./FlowerEdges";
 import { Badge } from "@/components/ui/badge";
-import flower1 from "@/assets/flores_Grupo02_A.webp";
-import flower2 from "@/assets/flores_Grupo02_B.webp";
-import floresSecas from "@/assets/floresSecas.webp";
-import floresSecas2 from "@/assets/floresSecas2.webp";
-import floresSecas3 from "@/assets/floresSecas3.webp";
 import { useCategories } from "@/hooks/useCategories";
 import { withErrorBoundary } from "@/components/shared/withErrorBoundary";
-import { fadeInUp, staggerContainer } from "@/utils/animations";
+import { fadeInUp, scaleIn, staggerContainer } from "@/utils/animations";
+import { Category } from "@/utils/types";
 
 export const Categories = () => {
   const { data: categories, isLoading, error } = useCategories();
@@ -23,7 +19,8 @@ export const Categories = () => {
 
   const categoriesFlowers = [
     {
-      image: flower1,
+      image:
+        "https://invitation-bucket-aws.s3.us-east-2.amazonaws.com/media-templates/template-flower/flores_Grupo02_A.webp",
       top: "12%",
       left: "-30px",
       size: 130,
@@ -33,7 +30,8 @@ export const Categories = () => {
       delay: 0,
     },
     {
-      image: flower2,
+      image:
+        "https://invitation-bucket-aws.s3.us-east-2.amazonaws.com/media-templates/template-flower/flores_Grupo02_B.webp",
       top: "18%",
       left: "-20px",
       size: 150,
@@ -43,7 +41,8 @@ export const Categories = () => {
       delay: 0.2,
     },
     {
-      image: flower1,
+      image:
+        "https://invitation-bucket-aws.s3.us-east-2.amazonaws.com/media-templates/template-flower/flores_Grupo02_A.webp",
       top: "26%",
       left: "-30px",
       size: 125,
@@ -56,7 +55,8 @@ export const Categories = () => {
 
   const floresSecasComponent = [
     {
-      image: floresSecas,
+      image:
+        "https://invitation-bucket-aws.s3.us-east-2.amazonaws.com/media-templates/template-flower/floresSecas.webp",
       top: "52%",
       left: "-50px",
       size: 220,
@@ -66,7 +66,8 @@ export const Categories = () => {
       delay: 0.1,
     },
     {
-      image: floresSecas3,
+      image:
+        "https://invitation-bucket-aws.s3.us-east-2.amazonaws.com/media-templates/template-flower/floresSecas3.webp",
       top: "52%",
       left: "-40px",
       size: 200,
@@ -76,7 +77,8 @@ export const Categories = () => {
       delay: 0.3,
     },
     {
-      image: floresSecas2,
+      image:
+        "https://invitation-bucket-aws.s3.us-east-2.amazonaws.com/media-templates/template-flower/floresSecas2.webp",
       top: "59%",
       left: "-45px",
       size: 120,
@@ -95,7 +97,7 @@ export const Categories = () => {
         ref={sectionRef}
         className="py-20 bg-gradient-to-b from-accent to-background relative overflow-x-hidden"
       >
-        <FlowerEdges
+        {/* <FlowerEdges
           sectionRef={sectionRef}
           side="left"
           flowers={categoriesFlowers}
@@ -105,7 +107,7 @@ export const Categories = () => {
           sectionRef={sectionRef}
           side="right"
           flowers={floresSecasComponent}
-        />
+        /> */}
 
         <Container>
           <motion.div
@@ -171,7 +173,7 @@ export const Categories = () => {
                 }}
                 className="categories-carousel"
               >
-                {categories?.map((category) => (
+                {categories?.map((category: Category) => (
                   <SwiperSlide key={category.id}>
                     <motion.div variants={scaleIn}>
                       <div className="group block relative overflow-hidden rounded-2xl bg-card shadow-soft hover:shadow-elegant transition-all duration-500 cursor-pointer h-[500px]">

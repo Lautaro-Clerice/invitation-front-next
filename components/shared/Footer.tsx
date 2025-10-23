@@ -1,3 +1,4 @@
+"use client";
 import { Instagram, Mail, Phone, Sparkles } from "lucide-react";
 import { Container } from "./Container";
 
@@ -13,7 +14,6 @@ export const Footer = () => {
     <footer className="border-t bg-secondary/30 mt-20">
       <Container>
         <div className="py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Brand */}
           <div className="col-span-1 md:col-span-2">
             <button
               onClick={() => scrollToSection("inicio")}
@@ -31,7 +31,6 @@ export const Footer = () => {
             </p>
           </div>
 
-          {/* Links */}
           <div>
             <h4 className="font-semibold mb-4">Navegación</h4>
             <ul className="space-y-2 text-sm">
@@ -70,7 +69,6 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact */}
           <div>
             <h4 className="font-semibold mb-4">Contacto</h4>
             <ul className="space-y-3 text-sm">

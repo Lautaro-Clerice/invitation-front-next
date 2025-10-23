@@ -14,20 +14,20 @@ const Home = () => {
         <section id="inicio">
           <Hero />
         </section>
-        {/* <section id="categorias">
+        <section id="categorias">
           <Categories />
         </section>
         <section id="que-incluye">
           <Features />
         </section>
-        <section id="invitaciones">
+        {/* <section id="invitaciones">
           <Invitations />
-        </section>
-        <section id="contacto">
+        </section> */}
+        {/* <section id="contacto">
           <Contact />
         </section> */}
       </main>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };

@@ -1,11 +1,6 @@
 "use client";
 import { useRef, useState, useEffect } from "react";
-import {
-  motion,
-  useScroll,
-  useTransform,
-  AnimatePresence,
-} from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, PhoneCall, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/shared/Container";
@@ -17,28 +12,11 @@ import {
   slideInFromLeft,
   slideInFromRight,
 } from "@/utils/animations";
-
-const scrollToSection = (sectionId: string) => {
-  const element = document.getElementById(sectionId);
-  if (element) {
-    element.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
-};
-
-const whatsappMessage =
-  "Hola! 👋 Me das una mano para hacer mi invitacion digital?";
+import { scrollToSection } from "@/utils/scrolls";
 
 export const Hero = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end start"],
-  });
 
-  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
-  const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
-
-  // Rotating words animation
   const words = ["especiales", "únicos"];
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
 
@@ -67,10 +45,7 @@ export const Hero = () => {
               variants={slideInFromLeft}
               className="order-2 lg:order-1"
             >
-              <motion.div
-                style={{ y: imageY, scale: imageScale }}
-                className="relative rounded-2xl overflow-hidden shadow-elegant"
-              >
+              <div className="relative rounded-2xl overflow-hidden shadow-elegant">
                 <Image
                   src={heroImage}
                   alt="Decoración elegante de evento, ejemplo de invitación digital personalizada"
@@ -81,7 +56,7 @@ export const Hero = () => {
                   role="img"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-              </motion.div>
+              </div>
             </motion.div>
 
             <motion.div
@@ -101,7 +76,7 @@ export const Hero = () => {
 
               <motion.h1
                 variants={fadeInUp}
-                className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
+                className="font-display text-4xl md:text-5xl lg:text-5xl font-bold mb-6 leading-tight"
               >
                 Celebra tus momentos{" "}
                 <span className="relative inline-block text-primary">
@@ -152,7 +127,11 @@ export const Hero = () => {
                 <Button
                   variant="outline"
                   size="lg"
-                  onClick={() => openWhatsApp(whatsappMessage)}
+                  onClick={() =>
+                    openWhatsApp(
+                      "Hola! 👋 Me das una mano para hacer mi invitacion digital?"
+                    )
+                  }
                   aria-label="Contactar por WhatsApp"
                 >
                   Contactanos

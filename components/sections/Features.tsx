@@ -1,5 +1,6 @@
+"use client";
 import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   Palette,
   Smartphone,
@@ -12,7 +13,7 @@ import {
   CheckCircle,
 } from "lucide-react";
 import { Container } from "@/components/shared/Container";
-import { fadeInUp, slideInFromRight } from "@/lib/animations";
+import { fadeInUp, slideInFromRight } from "@/utils/animations";
 
 const features = [
   {

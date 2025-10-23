@@ -1,5 +1,4 @@
 import { cn } from "@/lib/utils";
-import CustomDividerSvg from "@/templates/shared/CustomDividerSvg";
 
 interface WaveDividerProps {
   className?: string;
@@ -54,12 +53,7 @@ export const WaveDivider = ({
         }`.trim(),
       }}
     >
-      {type === "custom" ? (
-        <CustomDividerSvg
-          color={typeof color === "string" ? color : undefined}
-          style={{ height, width: "100%" }}
-        />
-      ) : (
+      {
         <svg
           viewBox="0 0 1200 120"
           preserveAspectRatio="none"
@@ -72,7 +66,7 @@ export const WaveDivider = ({
         >
           <path d={generateWavePath(type === "multiwave" ? 5 : waves)} />
         </svg>
-      )}
+      }
     </div>
   );
 };

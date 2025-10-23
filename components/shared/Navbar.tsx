@@ -9,8 +9,8 @@ import { Container } from "@/components/shared/Container";
 
 const navLinks = [
   { name: "Inicio", id: "inicio" },
-  { name: "Categorías", id: "categorias" },
   { name: "¿Qué incluye?", id: "que-incluye" },
+  { name: "Categorías", id: "categorias" },
   { name: "Invitaciones", id: "invitaciones" },
   { name: "Contacto", id: "contacto" },
 ];
@@ -76,9 +76,7 @@ export const Navbar = () => {
             className="flex items-center gap-2 group"
           >
             <Sparkles className="h-6 w-6 text-primary transition-transform group-hover:rotate-12" />
-            <span className="font- text-xl font-semibold">
-              Invita<span className="text-primary">Digital</span>
-            </span>
+            <span className="font- text-xl font-semibold">Invitly</span>
           </button>
 
           <div className="hidden md:flex items-center gap-8">
