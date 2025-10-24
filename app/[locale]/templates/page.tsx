@@ -1,11 +1,22 @@
 "use client";
 import { motion } from "framer-motion";
-import { Eye, Palette } from "lucide-react";
+import { Eye, Palette, X } from "lucide-react";
 import { Container } from "@/components/shared/Container";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { fadeInUp, scaleIn, staggerContainer } from "@/utils/animations";
 import { useTranslations } from "next-intl";
+import { useCategories } from "@/hooks/useCategories";
+import { useCategoriesStore } from "@/stores/categoriesStore";
+
+import { Category } from "@/utils/types";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 interface Invitation {
   id: string;
@@ -83,17 +94,23 @@ const invitations: Invitation[] = [
 ];
 
 const Templates = () => {
+  const { data: categories } = useCategories();
+  const selectedCategories = useCategoriesStore((s) => s.selectedCategories);
+  const addCategory = useCategoriesStore((state) => state.addCategory);
+
+  const handleAddCategory = (displayName: string) => {
+    const catObj = categories?.find(
+      (c: Category) => c.display_name === displayName
+    );
+    if (catObj) {
+      addCategory(catObj);
+    }
+  };
   const t = useTranslations("Templates");
   return (
     <section className="py-20 bg-gradient-to-b from-secondary to-background">
       <Container>
-        <motion.div
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={staggerContainer}
-          className="text-center mb-16"
-        >
+        <motion.div className="text-center mb-16">
           <motion.h2
             variants={fadeInUp}
             className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4"
@@ -108,6 +125,35 @@ const Templates = () => {
           </motion.p>
         </motion.div>
 
+        {categories && (
+          <Select onValueChange={handleAddCategory}>
+            <SelectTrigger className="w-60">
+              <SelectValue placeholder="Filtra por categorias" />
+            </SelectTrigger>
+            <SelectContent className="w-60">
+              {categories.map((cat: Category) => (
+                <SelectItem key={cat.key} value={cat.display_name}>
+                  {cat.display_name}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        )}
+        {selectedCategories &&
+          selectedCategories.map((cat: Category, key) => (
+            <Badge key={cat.key ?? key} className="flex items-center gap-1">
+              {cat.display_name}
+              <button
+                type="button"
+                className="text-lg  rounded-full w-4 h-4 flex items-center justify-center  text-white "
+                onClick={() => {
+                  useCategoriesStore.getState().removeCategory(cat.key);
+                }}
+              >
+                <X />
+              </button>
+            </Badge>
+          ))}
         <motion.div
           initial="initial"
           whileInView="animate"

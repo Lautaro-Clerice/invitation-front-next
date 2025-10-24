@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import { stripLocaleFromPath, Link, usePathname } from "@/src/i18n/routing";
 import {
   Select,
